@@ -5,6 +5,8 @@ all:start.o
 	arm-linux-gcc -g -c $^
 %.o:%.c
 	arm-linux-gcc -g -c $^
+dump:gboot.elf
+	arm-linux-objdump -D -S gboot.elf >$@
 .PHONY:clean
 clean:
-	rm *.o *.elf *.bin
+	rm *.o *.elf *.bin dump
